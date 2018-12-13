@@ -5,13 +5,17 @@ class Ninjas extends Component {
         console.log(this.props);
         //const {name,age} = this.props;
         const ninjas = this.props.ninjas;
-        const ninjaList = ninjas.map(ninja => {
-            return(
-                <div className="ninja" key={ninja.id}>
-                    <div>Name: {ninja.name}</div>
-                    <div>Age: {ninja.age}</div>
-                </div>
-            );
+        const ninjaList = ninjas.map(ninja => {   // looping through nija list
+            if(ninja.age>25) {
+                return(
+                    <div className="ninja" key={ninja.id}>
+                        <div>Name: {ninja.name}</div>
+                        <div>Age: {ninja.age}</div>
+                    </div>
+                );
+            } else {
+                return null;
+            }
         })
         return(
             <div className="ninja-list">
