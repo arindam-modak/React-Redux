@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Contact = (props) => {
-    console.log(props);
+    //console.log(props);
     setTimeout(() => {
         props.history.push('/about')   // this is a programatic redirect
     }, 2000);
