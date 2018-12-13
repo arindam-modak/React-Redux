@@ -18,14 +18,28 @@
                 name: 'Ryu',
                 age: 26
             }
-            handleClick(e) {
+            handleClick = (e) => {
                 console.log(e.target);
+                console.log(this.state);
+                this.setState({
+                    name: 'Yoshi',
+                    age: 25
+                });
             }
             handleMouseOver(e) {
                 console.log(e, e.pageX);
             }
             handleCopy(e){
                 console.log('Try being original for once!');
+            }
+            handleInputChange = (e) => {
+                this.setState({
+                    name: e.target.value
+                });
+            }
+            handleSubmit = (e) => {
+                e.preventDefault(); // to prevent page refreshon submit
+                console.log("form submited nubs");
             }
             render() {
                 return (
@@ -36,6 +50,12 @@
                         <button onClick={this.handleClick}>Click me</button>
                         <button onMouseOver={this.handleMouseOver}>Hover me</button>
                         <p onCopy={this.handleCopy}>Copy me if you can</p>
+
+                        <form onSubmit={this.handleSubmit}>
+                            <input type="text" onChange={this.handleInputChange} />
+                            <button>Submit</button>
+                        </form>
+
                     </div>
                 )
             }
