@@ -16,7 +16,16 @@
         class App extends React.Component {
             state = {
                 name: 'Ryu',
-                age: 25
+                age: 26
+            }
+            handleClick(e) {
+                console.log(e.target);
+            }
+            handleMouseOver(e) {
+                console.log(e, e.pageX);
+            }
+            handleCopy(e){
+                console.log('Try being original for once!');
             }
             render() {
                 return (
@@ -24,6 +33,9 @@
                         <h1>Hey guys</h1>
                         <p>{ Math.random() * 10 }</p>
                         <p>My name is: {this.state.name} and I am {this.state.age}</p>
+                        <button onClick={this.handleClick}>Click me</button>
+                        <button onMouseOver={this.handleMouseOver}>Hover me</button>
+                        <p onCopy={this.handleCopy}>Copy me if you can</p>
                     </div>
                 )
             }
